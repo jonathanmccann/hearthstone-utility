@@ -17,9 +17,13 @@ package com.hearthstone.util;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hearthstone.model.HearthstoneCardModel;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Jonathan McCann
@@ -27,6 +31,10 @@ import java.io.IOException;
 public class HearthstoneCardUtil {
 
 	public static void getHearthstoneCardJson() throws IOException {
+		List<HearthstoneCardModel> hearthstoneCardModels = new ArrayList<>();
+
+		ObjectMapper mapper = new ObjectMapper();
+
 		JsonFactory jsonFactory = new JsonFactory();
 
 		JsonParser jsonParser = jsonFactory.createParser(
@@ -35,30 +43,17 @@ public class HearthstoneCardUtil {
 		jsonParser.nextToken();
 
 		while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
-			String cardSet = jsonParser.getCurrentName();
+			String set = jsonParser.getCurrentName();
 
 			jsonParser.nextToken();
 
 			while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
-				while (jsonParser.nextToken() != JsonToken.END_OBJECT) {
-					String key = jsonParser.getText();
+				HearthstoneCardModel hearthstoneCardModel = mapper.readValue(
+					jsonParser, HearthstoneCardModel.class);
 
-					jsonParser.nextToken();
+				hearthstoneCardModel.setSet(set);
 
-					String value = jsonParser.getText();
-
-					if (key.equalsIgnoreCase("mechanics")) {
-						while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
-							System.out.println(
-								key + " - " + jsonParser.getText());
-						}
-					}
-					else {
-						System.out.println(key + " - " + value);
-					}
-				}
-
-				System.out.println();
+				hearthstoneCardModels.add(hearthstoneCardModel);
 			}
 		}
 
