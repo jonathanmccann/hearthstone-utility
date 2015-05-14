@@ -15,6 +15,7 @@
 package com.hearthstone;
 
 import com.hearthstone.util.DatabaseUtil;
+import com.hearthstone.util.HearthstoneCardUtil;
 
 /**
  * @author Jonathan McCann
@@ -23,6 +24,8 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 		DatabaseUtil.initializeDatabase();
+
+		HearthstoneCardUtil.getHearthstoneCardJson();
 	}
 
 }
