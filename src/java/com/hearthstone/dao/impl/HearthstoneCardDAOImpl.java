@@ -125,12 +125,20 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 	}
 
 	private static List<String> convertMechanicsToList(String mechanics) {
+		if ((mechanics == null) || (mechanics == "")) {
+			return new ArrayList<String>();
+		}
+
 		String[] mechanicsArray = mechanics.split(",");
 
 		return Arrays.asList(mechanicsArray);
 	}
 
 	private static String convertMechanicsToString(List<String> mechanics) {
+		if ((mechanics == null) || (mechanics.isEmpty())) {
+			return "";
+		}
+
 		int mechanicsSize = mechanics.size();
 
 		StringBuilder stringBuilder = new StringBuilder(
