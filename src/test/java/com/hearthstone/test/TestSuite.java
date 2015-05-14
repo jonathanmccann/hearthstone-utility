@@ -14,6 +14,7 @@
 
 package com.hearthstone.test;
 
+import com.hearthstone.test.model.HearthstoneCardModelTest;
 import com.hearthstone.test.util.DatabaseUtilTest;
 import com.hearthstone.util.DatabaseUtil;
 
@@ -27,7 +28,7 @@ import org.junit.runners.Suite;
  * @author Jonathan McCann
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ DatabaseUtilTest.class })
+@Suite.SuiteClasses({ DatabaseUtilTest.class, HearthstoneCardModelTest.class })
 public class TestSuite {
 
 	@BeforeClass
