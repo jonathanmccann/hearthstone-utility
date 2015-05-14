@@ -22,19 +22,19 @@ public class HearthstoneCardModel {
 	}
 
 	public HearthstoneCardModel(
-		String id, String cardSet, String cardName, String mechanics,
-		String text, String cardType, String rarity, String playerClass,
+		String id, String set, String name, String mechanics,
+		String text, String type, String rarity, String playerClass,
 		String race, String faction, String inPlayText, String flavor,
 		String artist, String howToGet, String howToGetGold, int cost,
 		int attack, int health, int durability, boolean collectible,
 		boolean elite) {
 
 		_id = id;
-		_cardSet = cardSet;
-		_cardName = cardName;
+		_set = set;
+		_name = name;
 		_mechanics = mechanics;
 		_text = text;
-		_cardType = cardType;
+		_type = type;
 		_rarity = rarity;
 		_playerClass = playerClass;
 		_race = race;
@@ -52,20 +52,20 @@ public class HearthstoneCardModel {
 		_elite = elite;
 	}
 
-	public String getCardSet() {
-		return _cardSet;
+	public String getSet() {
+		return _set;
 	}
 
-	public void setCardSet(String cardSet) {
-		_cardSet = cardSet;
+	public void setSet(String set) {
+		_set = set;
 	}
 
-	public String getCardName() {
-		return _cardName;
+	public String getName() {
+		return _name;
 	}
 
-	public void setCardName(String cardName) {
-		_cardName = cardName;
+	public void setName(String name) {
+		_name = name;
 	}
 
 	public String getMechanics() {
@@ -84,12 +84,12 @@ public class HearthstoneCardModel {
 		_text = text;
 	}
 
-	public String getCardType() {
-		return _cardType;
+	public String getType() {
+		return _type;
 	}
 
-	public void setCardType(String cardType) {
-		_cardType = cardType;
+	public void setType(String type) {
+		_type = type;
 	}
 
 	public String getRarity() {
@@ -221,11 +221,11 @@ public class HearthstoneCardModel {
 	}
 
 	private String _id;
-	private String _cardSet;
-	private String _cardName;
+	private String _set;
+	private String _name;
 	private String _mechanics;
 	private String _text;
-	private String _cardType;
+	private String _type;
 	private String _rarity;
 	private String _playerClass;
 	private String _race;

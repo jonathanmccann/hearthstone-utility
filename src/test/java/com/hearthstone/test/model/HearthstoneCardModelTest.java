@@ -29,9 +29,9 @@ public class HearthstoneCardModelTest {
 
 		hearthstoneCardModel.setArtist("testArtist");
 		hearthstoneCardModel.setAttack(1);
-		hearthstoneCardModel.setCardName("testCardName");
-		hearthstoneCardModel.setCardSet("testCardSet");
-		hearthstoneCardModel.setCardType("testCardType");
+		hearthstoneCardModel.setName("testName");
+		hearthstoneCardModel.setSet("testSet");
+		hearthstoneCardModel.setType("testType");
 		hearthstoneCardModel.setCollectible(true);
 		hearthstoneCardModel.setCost(1);
 		hearthstoneCardModel.setDurability(1);
@@ -51,9 +51,9 @@ public class HearthstoneCardModelTest {
 
 		Assert.assertEquals(hearthstoneCardModel.getArtist(), "testArtist");
 		Assert.assertEquals(hearthstoneCardModel.getAttack(), 1);
-		Assert.assertEquals(hearthstoneCardModel.getCardName(), "testCardName");
-		Assert.assertEquals(hearthstoneCardModel.getCardSet(), "testCardSet");
-		Assert.assertEquals(hearthstoneCardModel.getCardType(), "testCardType");
+		Assert.assertEquals(hearthstoneCardModel.getName(), "testName");
+		Assert.assertEquals(hearthstoneCardModel.getSet(), "testSet");
+		Assert.assertEquals(hearthstoneCardModel.getType(), "testType");
 		Assert.assertEquals(hearthstoneCardModel.isCollectible(), true);
 		Assert.assertEquals(hearthstoneCardModel.getCost(), 1);
 		Assert.assertEquals(hearthstoneCardModel.getDurability(), 1);

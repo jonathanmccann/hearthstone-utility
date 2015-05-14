@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS HearthstoneCard (
 	id VARCHAR(100) NOT NULL PRIMARY KEY,
-	cardSet VARCHAR(100) null,
-	cardName VARCHAR(100) null,
+	set VARCHAR(100) null,
+	name VARCHAR(100) null,
 	cost INT null,
 	attack INT null,
 	health INT null,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS HearthstoneCard (
 	text VARCHAR(100) null,
 	durability INT null,
 	collectible BOOLEAN null,
-	cardType VARCHAR(100) null,
+	type VARCHAR(100) null,
 	rarity VARCHAR(100) null,
 	playerClass VARCHAR(100) null,
 	race VARCHAR(100) null,
