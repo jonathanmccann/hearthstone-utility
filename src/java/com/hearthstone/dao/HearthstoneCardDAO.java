@@ -29,6 +29,9 @@ public interface HearthstoneCardDAO {
 	public void addHearthstoneCard(HearthstoneCardModel hearthstoneCardModel)
 		throws DatabaseConnectionException, SQLException;
 
+	public void addHearthstoneCards(List<HearthstoneCardModel> hearthstoneCardModels)
+		throws DatabaseConnectionException, SQLException;
+
 	public void deleteHearthstoneCard(String id)
 		throws DatabaseConnectionException, SQLException;
 

@@ -49,6 +49,26 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 	}
 
 	@Override
+	public void addHearthstoneCards(
+			List<HearthstoneCardModel> hearthstoneCardModels)
+		throws DatabaseConnectionException, SQLException {
+
+		try (Connection connection = DatabaseUtil.getDatabaseConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(
+				_ADD_HEARTHSTONE_CARD_MODEL_SQL)) {
+
+			for (HearthstoneCardModel hearthstoneCardModel :
+					hearthstoneCardModels) {
+
+				populateAddHearthstoneCardModelPreparedStatement(
+					preparedStatement, hearthstoneCardModel);
+
+				preparedStatement.executeUpdate();
+			}
+		}
+	}
+
+	@Override
 	public void deleteHearthstoneCard(String id)
 		throws DatabaseConnectionException, SQLException {
 
