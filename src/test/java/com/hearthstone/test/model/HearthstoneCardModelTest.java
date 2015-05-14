@@ -19,6 +19,7 @@ import com.hearthstone.model.HearthstoneCardModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.collection.IsIterableContainingInOrder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,22 +32,12 @@ public class HearthstoneCardModelTest {
 	public void testGettersAndSetters() {
 		HearthstoneCardModel hearthstoneCardModel = new HearthstoneCardModel();
 
-		hearthstoneCardModel.setArtist("testArtist");
-		hearthstoneCardModel.setAttack(1);
-		hearthstoneCardModel.setName("testName");
-		hearthstoneCardModel.setSet("testSet");
-		hearthstoneCardModel.setType("testType");
-		hearthstoneCardModel.setCollectible(true);
-		hearthstoneCardModel.setCost(1);
-		hearthstoneCardModel.setDurability(1);
-		hearthstoneCardModel.setElite(true);
-		hearthstoneCardModel.setFaction("testFaction");
-		hearthstoneCardModel.setFlavor("testFlavor");
-		hearthstoneCardModel.setHealth(1);
-		hearthstoneCardModel.setHowToGet("testHowToGet");
-		hearthstoneCardModel.setHowToGetGold("testHowToGetGold");
 		hearthstoneCardModel.setId("testId");
-		hearthstoneCardModel.setInPlayText("testInPlayText");
+		hearthstoneCardModel.setSet("testSet");
+		hearthstoneCardModel.setName("testName");
+		hearthstoneCardModel.setCost(1);
+		hearthstoneCardModel.setAttack(1);
+		hearthstoneCardModel.setHealth(1);
 
 		List<String> mechanics = new ArrayList<>();
 
@@ -54,35 +45,47 @@ public class HearthstoneCardModelTest {
 		mechanics.add("testSecondMechanic");
 
 		hearthstoneCardModel.setMechanics(mechanics);
+		hearthstoneCardModel.setText("testText");
+		hearthstoneCardModel.setDurability(1);
+		hearthstoneCardModel.setCollectible(true);
+		hearthstoneCardModel.setType("testType");
+		hearthstoneCardModel.setRarity("testRarity");
 		hearthstoneCardModel.setPlayerClass("testPlayerClass");
 		hearthstoneCardModel.setRace("testRace");
-		hearthstoneCardModel.setRarity("testRarity");
-		hearthstoneCardModel.setText("testText");
+		hearthstoneCardModel.setFaction("testFaction");
+		hearthstoneCardModel.setInPlayText("testInPlayText");
+		hearthstoneCardModel.setFlavor("testFlavor");
+		hearthstoneCardModel.setArtist("testArtist");
+		hearthstoneCardModel.setElite(true);
+		hearthstoneCardModel.setHowToGet("testHowToGet");
+		hearthstoneCardModel.setHowToGetGold("testHowToGetGold");
 
-		Assert.assertEquals(hearthstoneCardModel.getArtist(), "testArtist");
-		Assert.assertEquals(hearthstoneCardModel.getAttack(), 1);
-		Assert.assertEquals(hearthstoneCardModel.getName(), "testName");
-		Assert.assertEquals(hearthstoneCardModel.getSet(), "testSet");
-		Assert.assertEquals(hearthstoneCardModel.getType(), "testType");
-		Assert.assertEquals(hearthstoneCardModel.isCollectible(), true);
-		Assert.assertEquals(hearthstoneCardModel.getCost(), 1);
-		Assert.assertEquals(hearthstoneCardModel.getDurability(), 1);
-		Assert.assertEquals(hearthstoneCardModel.isElite(), true);
-		Assert.assertEquals(hearthstoneCardModel.getFaction(), "testFaction");
-		Assert.assertEquals(hearthstoneCardModel.getFlavor(), "testFlavor");
-		Assert.assertEquals(hearthstoneCardModel.getHealth(), 1);
-		Assert.assertEquals(hearthstoneCardModel.getHowToGet(), "testHowToGet");
+		Assert.assertEquals("testId", hearthstoneCardModel.getId());
+		Assert.assertEquals("testSet", hearthstoneCardModel.getSet());
+		Assert.assertEquals("testName" ,hearthstoneCardModel.getName());
+		Assert.assertEquals(1, hearthstoneCardModel.getCost());
+		Assert.assertEquals(1, hearthstoneCardModel.getAttack());
+		Assert.assertEquals(1, hearthstoneCardModel.getHealth());
+		Assert.assertThat(
+			hearthstoneCardModel.getMechanics(),
+			IsIterableContainingInOrder.contains(mechanics.toArray()));
+		Assert.assertEquals("testText", hearthstoneCardModel.getText());
+		Assert.assertEquals(1, hearthstoneCardModel.getDurability());
+		Assert.assertEquals(true, hearthstoneCardModel.isCollectible());
+		Assert.assertEquals("testType", hearthstoneCardModel.getType());
+		Assert.assertEquals("testRarity", hearthstoneCardModel.getRarity());
 		Assert.assertEquals(
-			hearthstoneCardModel.getHowToGetGold(), "testHowToGetGold");
-		Assert.assertEquals(hearthstoneCardModel.getId(), "testId");
+			"testPlayerClass", hearthstoneCardModel.getPlayerClass());
+		Assert.assertEquals("testRace", hearthstoneCardModel.getRace());
+		Assert.assertEquals("testFaction", hearthstoneCardModel.getFaction());
 		Assert.assertEquals(
-			hearthstoneCardModel.getInPlayText(), "testInPlayText");
-		Assert.assertEquals(hearthstoneCardModel.getMechanics().size(), 2);
+			"testInPlayText", hearthstoneCardModel.getInPlayText());
+		Assert.assertEquals("testFlavor", hearthstoneCardModel.getFlavor());
+		Assert.assertEquals("testArtist", hearthstoneCardModel.getArtist());
+		Assert.assertEquals(true, hearthstoneCardModel.isElite());
+		Assert.assertEquals("testHowToGet", hearthstoneCardModel.getHowToGet());
 		Assert.assertEquals(
-			hearthstoneCardModel.getPlayerClass(), "testPlayerClass");
-		Assert.assertEquals(hearthstoneCardModel.getRace(), "testRace");
-		Assert.assertEquals(hearthstoneCardModel.getRarity(), "testRarity");
-		Assert.assertEquals(hearthstoneCardModel.getText(), "testText");
+			"testHowToGetGold", hearthstoneCardModel.getHowToGetGold());
 	}
 
 }
