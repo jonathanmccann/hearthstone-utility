@@ -19,6 +19,8 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.hearthstone.dao.HearthstoneCardDAO;
+import com.hearthstone.dao.impl.HearthstoneCardDAOImpl;
 import com.hearthstone.model.HearthstoneCardModel;
 
 import java.io.File;
@@ -66,9 +68,19 @@ public class HearthstoneCardUtil {
 		return hearthstoneCardModels;
 	}
 
+	public static void populateHearthstoneCardDatabase() throws Exception {
+		List<HearthstoneCardModel> hearthstoneCardModels =
+			getHearthstoneCardJson();
+
+		_hearthstoneCardDAO.addHearthstoneCards(hearthstoneCardModels);
+	}
+
 	public static void setHearthstoneCardJson(String hearthstoneCardJson) {
 		_HEARTHSTONE_CARD_JSON = hearthstoneCardJson;
 	}
+
+	private static final HearthstoneCardDAO _hearthstoneCardDAO =
+		new HearthstoneCardDAOImpl();
 
 	private static String _HEARTHSTONE_CARD_JSON =
 		"src/main/resources/AllSets.json";
