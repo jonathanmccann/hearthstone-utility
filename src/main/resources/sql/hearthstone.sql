@@ -11,3 +11,7 @@ CREATE TABLE IF NOT EXISTS HearthstoneCard (
 	cardFlavor VARCHAR(100) null,
 	cardMechanics VARCHAR(100) null
 );
+
+CREATE TABLE IF NOT EXISTS Release (
+	version DOUBLE NOT NULL PRIMARY KEY,
+);
