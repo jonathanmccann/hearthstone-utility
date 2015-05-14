@@ -15,11 +15,12 @@
 package com.hearthstone.test.model;
 
 import com.hearthstone.model.HearthstoneCardModel;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Jonathan McCann

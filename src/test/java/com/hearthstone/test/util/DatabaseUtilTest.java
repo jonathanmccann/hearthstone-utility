@@ -16,11 +16,12 @@ package com.hearthstone.test.util;
 
 import com.hearthstone.exception.DatabaseConnectionException;
 import com.hearthstone.util.DatabaseUtil;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Jonathan McCann
@@ -28,7 +29,7 @@ import java.sql.SQLException;
 public class DatabaseUtilTest {
 
 	@Test
-	public void testGetDatabaseConnection() throws DatabaseConnectionException{
+	public void testGetDatabaseConnection() throws DatabaseConnectionException {
 		Connection connection = DatabaseUtil.getDatabaseConnection();
 
 		Assert.assertNotNull(connection);

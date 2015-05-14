@@ -16,11 +16,13 @@ package com.hearthstone.test.util;
 
 import com.hearthstone.model.HearthstoneCardModel;
 import com.hearthstone.util.HearthstoneCardUtil;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.io.IOException;
+
 import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Jonathan McCann
@@ -36,8 +38,8 @@ public class HearthstoneCardUtilTest {
 
 		Assert.assertEquals(hearthstoneCardModels.size(), 4);
 
-		HearthstoneCardModel hearthstoneCardModel =
-			hearthstoneCardModels.get(0);
+		HearthstoneCardModel hearthstoneCardModel = hearthstoneCardModels.get(
+			0);
 
 		Assert.assertEquals(hearthstoneCardModel.getSet(), "Basic");
 		Assert.assertEquals(hearthstoneCardModel.getId(), "CS2_112");
@@ -115,8 +117,7 @@ public class HearthstoneCardUtilTest {
 
 		hearthstoneCardModel = hearthstoneCardModels.get(3);
 
-		Assert.assertEquals(
-			hearthstoneCardModel.getSet(), "Classic");
+		Assert.assertEquals(hearthstoneCardModel.getSet(), "Classic");
 		Assert.assertEquals(hearthstoneCardModel.getId(), "EX1_559");
 		Assert.assertEquals(
 			hearthstoneCardModel.getName(), "Archmage Antonidas");
@@ -140,9 +141,9 @@ public class HearthstoneCardUtilTest {
 		Assert.assertEquals(hearthstoneCardModel.isCollectible(), true);
 		Assert.assertEquals(hearthstoneCardModel.isElite(), true);
 		Assert.assertEquals(hearthstoneCardModel.getPlayerClass(), "Mage");
-
 	}
 
 	private static final String _TEST_HEARTHSTONE_CARD_JSON =
 		"src/test/resources/test.json";
+
 }

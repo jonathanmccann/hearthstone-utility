@@ -17,6 +17,7 @@ package com.hearthstone.util;
 import com.hearthstone.exception.DatabaseConnectionException;
 
 import java.nio.charset.StandardCharsets;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -48,9 +49,7 @@ public class DatabaseUtil {
 		}
 	}
 
-	public static void initializeDatabase()
-		throws SQLException {
-
+	public static void initializeDatabase() throws SQLException {
 		RunScript.execute(
 			_databaseURL, null, null, _databaseFile, StandardCharsets.UTF_8,
 			false);

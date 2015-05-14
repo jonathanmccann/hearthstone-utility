@@ -18,10 +18,12 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.hearthstone.model.HearthstoneCardModel;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,4 +72,5 @@ public class HearthstoneCardUtil {
 
 	private static String _HEARTHSTONE_CARD_JSON =
 		"src/main/resources/AllSets.json";
+
 }

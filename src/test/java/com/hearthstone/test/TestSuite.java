@@ -20,6 +20,7 @@ import com.hearthstone.test.util.HearthstoneCardUtilTest;
 import com.hearthstone.util.DatabaseUtil;
 
 import org.h2.tools.DeleteDbFiles;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -29,13 +30,16 @@ import org.junit.runners.Suite;
  * @author Jonathan McCann
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ DatabaseUtilTest.class, HearthstoneCardModelTest.class, HearthstoneCardUtilTest.class })
+@Suite.SuiteClasses({
+	DatabaseUtilTest.class, HearthstoneCardModelTest.class,
+	HearthstoneCardUtilTest.class
+})
 public class TestSuite {
 
 	@BeforeClass
 	public static void setUp() {
-		DatabaseUtil.setDatabaseFile(_databaseFile);
-		DatabaseUtil.setDatabaseURL(_databaseURL);
+		DatabaseUtil.setDatabaseFile(_DATABASE_FILE);
+		DatabaseUtil.setDatabaseURL(_DATABASE_URL);
 	}
 
 	@AfterClass
@@ -43,9 +47,10 @@ public class TestSuite {
 		DeleteDbFiles.execute("./db", "testHearthstone", true);
 	}
 
-	private static String _databaseFile =
+	private static final String _DATABASE_FILE =
 		"src/main/resources/sql/hearthstone.sql";
-	private static String _databaseURL =
+
+	private static final String _DATABASE_URL =
 		"jdbc:h2:file:./db/testHearthstone;MV_STORE=FALSE";
 
 }
