@@ -31,10 +31,11 @@ public class HearthstoneCardUtilTest {
 
 	@Test
 	public void testGetHearthstoneCardJson() throws IOException {
-		HearthstoneCardUtil.setHearthstoneCardJson(_TEST_HEARTHSTONE_CARD_JSON);
+		HearthstoneCardUtil.setHearthstoneCardJsonFile(
+			_TEST_HEARTHSTONE_CARD_JSON_FILE);
 
 		List<HearthstoneCardModel> hearthstoneCardModels =
-			HearthstoneCardUtil.getHearthstoneCardJson();
+			HearthstoneCardUtil.getHearthstoneCardJsonFromFile();
 
 		Assert.assertEquals(hearthstoneCardModels.size(), 4);
 
@@ -143,7 +144,7 @@ public class HearthstoneCardUtilTest {
 		Assert.assertEquals(hearthstoneCardModel.getPlayerClass(), "Mage");
 	}
 
-	private static final String _TEST_HEARTHSTONE_CARD_JSON =
+	private static final String _TEST_HEARTHSTONE_CARD_JSON_FILE =
 		"src/test/resources/test.json";
 
 }
