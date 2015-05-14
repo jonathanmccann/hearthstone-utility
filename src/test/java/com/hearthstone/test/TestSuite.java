@@ -16,6 +16,7 @@ package com.hearthstone.test;
 
 import com.hearthstone.test.model.HearthstoneCardModelTest;
 import com.hearthstone.test.util.DatabaseUtilTest;
+import com.hearthstone.test.util.HearthstoneCardUtilTest;
 import com.hearthstone.util.DatabaseUtil;
 
 import org.h2.tools.DeleteDbFiles;
@@ -28,7 +29,7 @@ import org.junit.runners.Suite;
  * @author Jonathan McCann
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ DatabaseUtilTest.class, HearthstoneCardModelTest.class })
+@Suite.SuiteClasses({ DatabaseUtilTest.class, HearthstoneCardModelTest.class, HearthstoneCardUtilTest.class })
 public class TestSuite {
 
 	@BeforeClass

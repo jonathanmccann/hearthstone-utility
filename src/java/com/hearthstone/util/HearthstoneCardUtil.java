@@ -30,7 +30,9 @@ import java.util.List;
  */
 public class HearthstoneCardUtil {
 
-	public static void getHearthstoneCardJson() throws IOException {
+	public static List<HearthstoneCardModel> getHearthstoneCardJson()
+		throws IOException {
+
 		List<HearthstoneCardModel> hearthstoneCardModels = new ArrayList<>();
 
 		ObjectMapper mapper = new ObjectMapper();
@@ -58,8 +60,14 @@ public class HearthstoneCardUtil {
 		}
 
 		jsonParser.close();
+
+		return hearthstoneCardModels;
 	}
 
-	private static final String _HEARTHSTONE_CARD_JSON =
+	public static void setHearthstoneCardJson(String hearthstoneCardJson) {
+		_HEARTHSTONE_CARD_JSON = hearthstoneCardJson;
+	}
+
+	private static String _HEARTHSTONE_CARD_JSON =
 		"src/main/resources/AllSets.json";
 }

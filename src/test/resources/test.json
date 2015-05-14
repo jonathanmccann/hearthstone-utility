@@ -1,0 +1,76 @@
+{
+   "Basic":[
+      {
+         "id":"CS2_112",
+         "name":"Arcanite Reaper",
+         "type":"Weapon",
+         "faction":"Neutral",
+         "rarity":"Common",
+         "cost":5,
+         "attack":5,
+         "durability":2,
+         "flavor":"No… actually you should fear the Reaper.",
+         "artist":"Stefan Kopinski",
+         "collectible":true,
+         "playerClass":"Warrior",
+         "howToGet":"Unlocked at Level 10.",
+         "howToGetGold":"Unlocked at Level 51."
+      },
+      {
+         "id":"EX1_066",
+         "name":"Acidic Swamp Ooze",
+         "type":"Minion",
+         "faction":"Alliance",
+         "rarity":"Common",
+         "cost":2,
+         "attack":3,
+         "health":2,
+         "text":"<b>Battlecry:</b> Destroy your opponent's weapon.",
+         "flavor":"Oozes love Flamenco.  Don't ask.",
+         "artist":"Chris Rahn",
+         "collectible":true,
+         "howToGetGold":"Unlocked at Rogue Level 57.",
+         "mechanics":[
+            "Battlecry"
+         ]
+      }
+   ],
+   "Blackrock Mountain":[
+      {
+         "id":"BRM_031",
+         "name":"Chromaggus",
+         "type":"Minion",
+         "rarity":"Legendary",
+         "cost":8,
+         "attack":6,
+         "health":8,
+         "text":"Whenever you draw a card, put another copy into your hand.",
+         "flavor":"Left head and right head can never agree about what to eat for dinner, so they always end up just eating ramen again.",
+         "artist":"Todd Lockwood",
+         "collectible":true,
+         "elite":true,
+         "race":"Dragon",
+         "howToGet":"Unlocked by completing Blackwing Lair.",
+         "howToGetGold":"Can be crafted after completing Blackwing Lair."
+      }
+   ],
+   "Classic":[
+      {
+         "id":"EX1_559",
+         "name":"Archmage Antonidas",
+         "type":"Minion",
+         "faction":"Neutral",
+         "rarity":"Legendary",
+         "cost":7,
+         "attack":5,
+         "health":7,
+         "text":"Whenever you cast a spell, add a 'Fireball' spell to your hand.",
+         "inPlayText":"Grand Magus",
+         "flavor":"Antonidas was the Grand Magus of the Kirin Tor, and Jaina's mentor.  This was a big step up from being Grand Magus of Jelly Donuts.",
+         "artist":"Wayne Reynolds",
+         "collectible":true,
+         "elite":true,
+         "playerClass":"Mage"
+      }
+   ]
+}
