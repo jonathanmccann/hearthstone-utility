@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS HearthstoneCard (
 	cost INT null,
 	attack INT null,
 	health INT null,
-	mechanics VARCHAR(100) null,
-	text VARCHAR(100) null,
+	mechanics VARCHAR(250) null,
+	text VARCHAR(250) null,
 	durability INT null,
 	collectible BOOLEAN null,
 	type VARCHAR(100) null,
@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS HearthstoneCard (
 	playerClass VARCHAR(100) null,
 	race VARCHAR(100) null,
 	faction VARCHAR(100) null,
-	inPlayText VARCHAR(100) null,
-	flavor VARCHAR(100) null,
+	inPlayText VARCHAR(250) null,
+	flavor VARCHAR(250) null,
 	artist VARCHAR(100) null,
 	elite BOOLEAN null,
-	howToGet VARCHAR(100) null,
-	howToGetGold VARCHAR(100) null
+	howToGet VARCHAR(250) null,
+	howToGetGold VARCHAR(250) null
 );
 
 CREATE TABLE IF NOT EXISTS Release (
