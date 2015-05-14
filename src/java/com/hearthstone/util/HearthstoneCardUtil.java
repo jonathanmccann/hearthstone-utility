@@ -26,6 +26,7 @@ import com.hearthstone.model.HearthstoneCardModel;
 import java.io.File;
 import java.io.IOException;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,17 +35,13 @@ import java.util.List;
  */
 public class HearthstoneCardUtil {
 
-	public static List<HearthstoneCardModel> getHearthstoneCardJson()
+	public static List<HearthstoneCardModel> getHearthstoneCardJson(
+			JsonParser jsonParser)
 		throws IOException {
 
 		List<HearthstoneCardModel> hearthstoneCardModels = new ArrayList<>();
 
 		ObjectMapper mapper = new ObjectMapper();
-
-		JsonFactory jsonFactory = new JsonFactory();
-
-		JsonParser jsonParser = jsonFactory.createParser(
-			new File(_HEARTHSTONE_CARD_JSON));
 
 		jsonParser.nextToken();
 
@@ -68,21 +65,65 @@ public class HearthstoneCardUtil {
 		return hearthstoneCardModels;
 	}
 
-	public static void populateHearthstoneCardDatabase() throws Exception {
+	public static List<HearthstoneCardModel> getHearthstoneCardJsonFromURL()
+		throws IOException {
+
+		JsonFactory jsonFactory = new JsonFactory();
+
+		JsonParser jsonParser = jsonFactory.createParser(
+			new URL(_HEARTHSTONE_CARD_JSON_URL));
+
+		return getHearthstoneCardJson(jsonParser);
+	}
+
+	public static List<HearthstoneCardModel> getHearthstoneCardJsonFromFile()
+		throws IOException {
+
+		JsonFactory jsonFactory = new JsonFactory();
+
+		JsonParser jsonParser = jsonFactory.createParser(
+			new File(_HEARTHSTONE_CARD_JSON_FILE));
+
+		return getHearthstoneCardJson(jsonParser);
+	}
+
+	public static void populateHearthstoneCardDatabaseFromFile()
+		throws Exception {
+
 		List<HearthstoneCardModel> hearthstoneCardModels =
-			getHearthstoneCardJson();
+			getHearthstoneCardJsonFromFile();
 
 		_hearthstoneCardDAO.addHearthstoneCards(hearthstoneCardModels);
 	}
 
-	public static void setHearthstoneCardJson(String hearthstoneCardJson) {
-		_HEARTHSTONE_CARD_JSON = hearthstoneCardJson;
+	public static void populateHearthstoneCardDatabaseFromURL()
+		throws Exception {
+
+		List<HearthstoneCardModel> hearthstoneCardModels =
+			getHearthstoneCardJsonFromURL();
+
+		_hearthstoneCardDAO.addHearthstoneCards(hearthstoneCardModels);
+	}
+
+	public static void setHearthstoneCardJsonFile(
+		String hearthstoneCardJsonFile) {
+
+		_HEARTHSTONE_CARD_JSON_FILE = hearthstoneCardJsonFile;
+	}
+
+	public static void setHearthstoneCardJsonURL(
+		String hearthstoneCardJsonURL) {
+
+		_HEARTHSTONE_CARD_JSON_URL = hearthstoneCardJsonURL;
 	}
 
 	private static final HearthstoneCardDAO _hearthstoneCardDAO =
 		new HearthstoneCardDAOImpl();
 
-	private static String _HEARTHSTONE_CARD_JSON =
+	private static String _HEARTHSTONE_CARD_JSON_FILE =
 		"src/main/resources/AllSets.json";
+
+	private static String _HEARTHSTONE_CARD_JSON_URL =
+		"http://www.hearthstonejson.com/json/AllSets.json";
 
 }
