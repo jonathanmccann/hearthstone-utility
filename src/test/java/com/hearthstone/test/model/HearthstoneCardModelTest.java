@@ -18,6 +18,9 @@ import com.hearthstone.model.HearthstoneCardModel;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Jonathan McCann
  */
@@ -43,7 +46,13 @@ public class HearthstoneCardModelTest {
 		hearthstoneCardModel.setHowToGetGold("testHowToGetGold");
 		hearthstoneCardModel.setId("testId");
 		hearthstoneCardModel.setInPlayText("testInPlayText");
-		hearthstoneCardModel.setMechanics("testMechanics");
+
+		List<String> mechanics = new ArrayList<>();
+
+		mechanics.add("testFirstMechanic");
+		mechanics.add("testSecondMechanic");
+
+		hearthstoneCardModel.setMechanics(mechanics);
 		hearthstoneCardModel.setPlayerClass("testPlayerClass");
 		hearthstoneCardModel.setRace("testRace");
 		hearthstoneCardModel.setRarity("testRarity");
@@ -67,8 +76,7 @@ public class HearthstoneCardModelTest {
 		Assert.assertEquals(hearthstoneCardModel.getId(), "testId");
 		Assert.assertEquals(
 			hearthstoneCardModel.getInPlayText(), "testInPlayText");
-		Assert.assertEquals(
-			hearthstoneCardModel.getMechanics(), "testMechanics");
+		Assert.assertEquals(hearthstoneCardModel.getMechanics().size(), 2);
 		Assert.assertEquals(
 			hearthstoneCardModel.getPlayerClass(), "testPlayerClass");
 		Assert.assertEquals(hearthstoneCardModel.getRace(), "testRace");

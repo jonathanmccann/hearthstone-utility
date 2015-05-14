@@ -14,6 +14,8 @@
 
 package com.hearthstone.model;
 
+import java.util.List;
+
 /**
  * @author Jonathan McCann
  */
@@ -22,7 +24,7 @@ public class HearthstoneCardModel {
 	}
 
 	public HearthstoneCardModel(
-		String id, String set, String name, String mechanics,
+		String id, String set, String name, List<String> mechanics,
 		String text, String type, String rarity, String playerClass,
 		String race, String faction, String inPlayText, String flavor,
 		String artist, String howToGet, String howToGetGold, int cost,
@@ -68,11 +70,11 @@ public class HearthstoneCardModel {
 		_name = name;
 	}
 
-	public String getMechanics() {
+	public List<String> getMechanics() {
 		return _mechanics;
 	}
 
-	public void setMechanics(String mechanics) {
+	public void setMechanics(List<String> mechanics) {
 		_mechanics = mechanics;
 	}
 
@@ -223,7 +225,7 @@ public class HearthstoneCardModel {
 	private String _id;
 	private String _set;
 	private String _name;
-	private String _mechanics;
+	private List<String> _mechanics;
 	private String _text;
 	private String _type;
 	private String _rarity;
