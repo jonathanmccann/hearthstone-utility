@@ -18,14 +18,16 @@ import com.hearthstone.dao.HearthstoneCardDAO;
 import com.hearthstone.dao.impl.HearthstoneCardDAOImpl;
 import com.hearthstone.exception.DatabaseConnectionException;
 import com.hearthstone.model.HearthstoneCardModel;
-import org.hamcrest.collection.IsIterableContainingInOrder;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hamcrest.collection.IsIterableContainingInOrder;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Jonathan McCann
@@ -211,12 +213,12 @@ public class HearthstoneCardDAOTest {
 
 		_hearthstoneCardDAO.deleteHearthstoneCard("testId");
 
-		hearthstoneCardCount =
-			_hearthstoneCardDAO.getHearthstoneCardCount();
+		hearthstoneCardCount = _hearthstoneCardDAO.getHearthstoneCardCount();
 
 		Assert.assertEquals(0, hearthstoneCardCount);
 	}
 
-	private static HearthstoneCardDAO _hearthstoneCardDAO =
+	private static final HearthstoneCardDAO _hearthstoneCardDAO =
 		new HearthstoneCardDAOImpl();
+
 }

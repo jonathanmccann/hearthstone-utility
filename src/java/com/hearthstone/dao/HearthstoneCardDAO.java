@@ -18,6 +18,7 @@ import com.hearthstone.exception.DatabaseConnectionException;
 import com.hearthstone.model.HearthstoneCardModel;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
 /**
@@ -39,4 +40,5 @@ public interface HearthstoneCardDAO {
 
 	public int getHearthstoneCardCount()
 		throws DatabaseConnectionException, SQLException;
+
 }

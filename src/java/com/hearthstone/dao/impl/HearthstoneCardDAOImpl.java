@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -123,6 +124,29 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 		}
 	}
 
+	private static List<String> convertMechanicsToList(String mechanics) {
+		String[] mechanicsArray = mechanics.split(",");
+
+		return Arrays.asList(mechanicsArray);
+	}
+
+	private static String convertMechanicsToString(List<String> mechanics) {
+		int mechanicsSize = mechanics.size();
+
+		StringBuilder stringBuilder = new StringBuilder(
+			(mechanicsSize * 2) - 1);
+
+		for (int i = 0; i < mechanicsSize; i++) {
+			stringBuilder.append(mechanics.get(i));
+
+			if ((i + 1) != mechanicsSize) {
+				stringBuilder.append(",");
+			}
+		}
+
+		return stringBuilder.toString();
+	}
+
 	private static HearthstoneCardModel createHearthstoneCardModelFromResultSet(
 			ResultSet resultSet)
 		throws SQLException {
@@ -186,29 +210,6 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 		preparedStatement.setString(21, hearthstoneCardModel.getHowToGetGold());
 	}
 
-	private static String convertMechanicsToString(List<String> mechanics) {
-		int mechanicsSize = mechanics.size();
-
-		StringBuilder stringBuilder = new StringBuilder(
-			(mechanicsSize * 2) - 1);
-
-		for (int i = 0; i < mechanicsSize; i++) {
-			stringBuilder.append(mechanics.get(i));
-
-			if ((i + 1) != mechanicsSize) {
-				stringBuilder.append(",");
-			}
-		}
-
-		return stringBuilder.toString();
-	}
-
-	private static List<String> convertMechanicsToList(String mechanics) {
-		String[] mechanicsArray = mechanics.split(",");
-
-		return Arrays.asList(mechanicsArray);
-	}
-
 	private static final String _ADD_HEARTHSTONE_CARD_MODEL_SQL =
 		"INSERT INTO HearthstoneCard(id, set, name, cost, attack, health, " +
 			"mechanics, text, durability, collectible, type, rarity, " +
@@ -222,10 +223,10 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 	private static final String _GET_ALL_HEARTHSTONE_CARDS_SQL =
 		"SELECT * FROM HearthstoneCard";
 
-	private static final String _GET_HEARTHSTONE_CARD_SQL =
-		"SELECT * FROM HearthstoneCard where id = ?";
-
 	private static final String _GET_HEARTHSTONE_CARD_COUNT_SQL =
 		"SELECT COUNT(*) FROM HearthstoneCard";
+
+	private static final String _GET_HEARTHSTONE_CARD_SQL =
+		"SELECT * FROM HearthstoneCard where id = ?";
 
 }

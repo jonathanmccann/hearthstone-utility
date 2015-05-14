@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hamcrest.collection.IsIterableContainingInOrder;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -62,7 +63,7 @@ public class HearthstoneCardModelTest {
 
 		Assert.assertEquals("testId", hearthstoneCardModel.getId());
 		Assert.assertEquals("testSet", hearthstoneCardModel.getSet());
-		Assert.assertEquals("testName" ,hearthstoneCardModel.getName());
+		Assert.assertEquals("testName", hearthstoneCardModel.getName());
 		Assert.assertEquals(1, hearthstoneCardModel.getCost());
 		Assert.assertEquals(1, hearthstoneCardModel.getAttack());
 		Assert.assertEquals(1, hearthstoneCardModel.getHealth());

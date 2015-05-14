@@ -31,7 +31,7 @@ import org.junit.runners.Suite;
  * @author Jonathan McCann
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({
+@Suite.SuiteClasses( {
 	DatabaseUtilTest.class, HearthstoneCardDAOTest.class,
 	HearthstoneCardModelTest.class, HearthstoneCardUtilTest.class
 })
