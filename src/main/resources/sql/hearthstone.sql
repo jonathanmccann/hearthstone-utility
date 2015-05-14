@@ -1,15 +1,25 @@
 CREATE TABLE IF NOT EXISTS HearthstoneCard (
-	cardId LONG NOT NULL PRIMARY KEY,
-	cardName VARCHAR(100) null,
+	id VARCHAR(100) NOT NULL PRIMARY KEY,
 	cardSet VARCHAR(100) null,
+	cardName VARCHAR(100) null,
+	cost INT null,
+	attack INT null,
+	health INT null,
+	mechanics VARCHAR(100) null,
+	text VARCHAR(100) null,
+	durability INT null,
+	collectible BOOLEAN null,
 	cardType VARCHAR(100) null,
-	cardRarity VARCHAR(100) null,
-	cardCost VARCHAR(100) null,
-	cardAttack VARCHAR(100) null,
-	cardHealth VARCHAR(100) null,
-	cardText VARCHAR(100) null,
-	cardFlavor VARCHAR(100) null,
-	cardMechanics VARCHAR(100) null
+	rarity VARCHAR(100) null,
+	playerClass VARCHAR(100) null,
+	race VARCHAR(100) null,
+	faction VARCHAR(100) null,
+	inPlayText VARCHAR(100) null,
+	flavor VARCHAR(100) null,
+	artist VARCHAR(100) null,
+	elite BOOLEAN null,
+	howToGet VARCHAR(100) null,
+	howToGetGold VARCHAR(100) null
 );
 
 CREATE TABLE IF NOT EXISTS Release (
