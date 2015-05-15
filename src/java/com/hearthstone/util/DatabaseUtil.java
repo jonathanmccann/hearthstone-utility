@@ -69,6 +69,6 @@ public class DatabaseUtil {
 	private static String _databaseFile =
 		"src/main/resources/sql/hearthstone.sql";
 	private static String _databaseURL =
-		"jdbc:h2:file:./db/hearthstone;MV_STORE=FALSE";
+		"jdbc:h2:file:./db/hearthstone;MV_STORE=FALSE;IGNORECASE=TRUE";
 
 }
