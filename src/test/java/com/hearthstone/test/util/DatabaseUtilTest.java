@@ -35,9 +35,4 @@ public class DatabaseUtilTest {
 		Assert.assertNotNull(connection);
 	}
 
-	@Test
-	public void testInitializeDatabase() throws SQLException {
-		DatabaseUtil.initializeDatabase();
-	}
-
 }

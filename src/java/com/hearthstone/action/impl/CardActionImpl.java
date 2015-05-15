@@ -33,7 +33,20 @@ public class CardActionImpl implements Action {
 		throws DatabaseConnectionException, SQLException {
 
 		List<HearthstoneCardModel> hearthstoneCardModels =
-			_hearthstoneCardDAO.getHearthstoneCardByName(input);
+			findHearthstoneCardByName(input);
+
+		displayHearthstoneCard(hearthstoneCardModels);
+	}
+
+	private static List<HearthstoneCardModel> findHearthstoneCardByName(
+			String name)
+		throws DatabaseConnectionException, SQLException {
+
+		return _hearthstoneCardDAO.getHearthstoneCardByName(name);
+	}
+
+	private static void displayHearthstoneCard(
+		List<HearthstoneCardModel> hearthstoneCardModels) {
 
 		for (HearthstoneCardModel hearthstoneCardModel :
 				hearthstoneCardModels) {

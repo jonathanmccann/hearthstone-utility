@@ -14,6 +14,7 @@
 
 package com.hearthstone.test;
 
+import com.hearthstone.test.action.CardActionTest;
 import com.hearthstone.test.dao.HearthstoneCardDAOTest;
 import com.hearthstone.test.dao.ReleaseDAOTest;
 import com.hearthstone.test.model.HearthstoneCardModelTest;
@@ -34,16 +35,17 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
-	DatabaseUtilTest.class, HearthstoneCardDAOTest.class,
+	CardActionTest.class, DatabaseUtilTest.class, HearthstoneCardDAOTest.class,
 	HearthstoneCardModelTest.class, HearthstoneCardUtilTest.class,
 	ReleaseDAOTest.class, ReleaseUtilTest.class
 })
 public class TestSuite {
 
 	@BeforeClass
-	public static void setUp() {
+	public static void setUp() throws Exception {
 		DatabaseUtil.setDatabaseFile(_DATABASE_FILE);
 		DatabaseUtil.setDatabaseURL(_DATABASE_URL);
+		DatabaseUtil.initializeDatabase();
 	}
 
 	@AfterClass
@@ -55,6 +57,6 @@ public class TestSuite {
 		"src/main/resources/sql/hearthstone.sql";
 
 	private static final String _DATABASE_URL =
-		"jdbc:h2:file:./db/testHearthstone;MV_STORE=FALSE";
+		"jdbc:h2:file:./db/testHearthstone;MV_STORE=FALSE;IGNORECASE=TRUE";
 
 }

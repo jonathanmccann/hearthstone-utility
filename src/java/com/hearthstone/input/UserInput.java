@@ -33,8 +33,16 @@ public class UserInput {
 
 		for (userPrompt(); scanner.hasNextLine(); userPrompt()) {
 			String input = scanner.nextLine();
-			String userAction = input.substring(0, input.indexOf(' '));
-			String parameters = input.substring(input.indexOf(' ') + 1);
+			String userAction = "";
+			String parameters = "";
+
+			if (input.indexOf(' ') < 0) {
+				userAction = input;
+			}
+			else {
+				userAction = input.substring(0, input.indexOf(' '));
+				parameters = input.substring(input.indexOf(' ') + 1);
+			}
 
 			Action action = actionMap.get(userAction);
 
