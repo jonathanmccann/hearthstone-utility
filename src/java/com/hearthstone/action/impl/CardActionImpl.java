@@ -12,23 +12,17 @@
  * details.
  */
 
-package com.hearthstone;
+package com.hearthstone.action.impl;
 
-import com.hearthstone.input.UserInput;
-import com.hearthstone.util.DatabaseUtil;
-import com.hearthstone.util.HearthstoneCardUtil;
+import com.hearthstone.action.Action;
 
 /**
  * @author Jonathan McCann
  */
-public class Main {
+public class CardActionImpl implements Action {
 
-	public static void main(String[] args) throws Exception {
-		DatabaseUtil.initializeDatabase();
-
-		HearthstoneCardUtil.populateHearthstoneCardDatabaseFromURL();
-
-		UserInput.receiveUserInput();
+	@Override
+	public void execute(String input) {
+		System.out.println("input = " + input);
 	}
-
 }
