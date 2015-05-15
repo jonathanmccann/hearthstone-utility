@@ -38,7 +38,10 @@ public interface HearthstoneCardDAO {
 	public List<HearthstoneCardModel> getAllHearthstoneCards()
 		throws DatabaseConnectionException, SQLException;
 
-	public HearthstoneCardModel getHearthstoneCard(String id)
+	public HearthstoneCardModel getHearthstoneCardById(String id)
+		throws DatabaseConnectionException, SQLException;
+
+	public List<HearthstoneCardModel> getHearthstoneCardByName(String name)
 		throws DatabaseConnectionException, SQLException;
 
 	public int getHearthstoneCardCount()

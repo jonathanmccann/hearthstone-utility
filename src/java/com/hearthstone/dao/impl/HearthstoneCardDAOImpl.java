@@ -105,12 +105,12 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 	}
 
 	@Override
-	public HearthstoneCardModel getHearthstoneCard(String id)
+	public HearthstoneCardModel getHearthstoneCardById(String id)
 		throws DatabaseConnectionException, SQLException {
 
 		try (Connection connection = DatabaseUtil.getDatabaseConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement(
-				_GET_HEARTHSTONE_CARD_SQL)) {
+				_GET_HEARTHSTONE_CARD_BY_ID_SQL)) {
 
 			preparedStatement.setString(1, id);
 
@@ -121,6 +121,31 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 				else {
 					return null;
 				}
+			}
+		}
+	}
+
+	@Override
+	public List<HearthstoneCardModel> getHearthstoneCardByName(String name)
+		throws DatabaseConnectionException, SQLException {
+
+		try (Connection connection = DatabaseUtil.getDatabaseConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(
+				_GET_HEARTHSTONE_CARD_BY_NAME_SQL)) {
+
+			preparedStatement.setString(1, "%" + name + "%");
+			preparedStatement.setString(2, name);
+
+			try (ResultSet resultSet = preparedStatement.executeQuery()) {
+				List<HearthstoneCardModel> hearthstoneCardModels =
+					new ArrayList<>();
+
+				while (resultSet.next()) {
+					hearthstoneCardModels.add(
+						createHearthstoneCardModelFromResultSet(resultSet));
+				}
+
+				return hearthstoneCardModels;
 			}
 		}
 	}
@@ -254,7 +279,11 @@ public class HearthstoneCardDAOImpl implements HearthstoneCardDAO {
 	private static final String _GET_HEARTHSTONE_CARD_COUNT_SQL =
 		"SELECT COUNT(*) FROM HearthstoneCard";
 
-	private static final String _GET_HEARTHSTONE_CARD_SQL =
+	private static final String _GET_HEARTHSTONE_CARD_BY_ID_SQL =
 		"SELECT * FROM HearthstoneCard where id = ?";
+
+	private static final String _GET_HEARTHSTONE_CARD_BY_NAME_SQL =
+		"SELECT * FROM HearthstoneCard where (name LIKE ? OR SOUNDEX(NAME) = " +
+			"SOUNDEX(?)) AND collectible = true";
 
 }

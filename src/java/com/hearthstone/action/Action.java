@@ -14,11 +14,16 @@
 
 package com.hearthstone.action;
 
+import com.hearthstone.exception.DatabaseConnectionException;
+
+import java.sql.SQLException;
+
 /**
  * @author Jonathan McCann
  */
 public interface Action {
 
-	public void execute(String input);
+	public void execute(String input)
+		throws DatabaseConnectionException, SQLException;
 
 }

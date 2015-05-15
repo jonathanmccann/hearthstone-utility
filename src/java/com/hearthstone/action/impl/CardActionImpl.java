@@ -15,6 +15,13 @@
 package com.hearthstone.action.impl;
 
 import com.hearthstone.action.Action;
+import com.hearthstone.dao.HearthstoneCardDAO;
+import com.hearthstone.dao.impl.HearthstoneCardDAOImpl;
+import com.hearthstone.exception.DatabaseConnectionException;
+import com.hearthstone.model.HearthstoneCardModel;
+
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author Jonathan McCann
@@ -22,7 +29,23 @@ import com.hearthstone.action.Action;
 public class CardActionImpl implements Action {
 
 	@Override
-	public void execute(String input) {
-		System.out.println("input = " + input);
+	public void execute(String input)
+		throws DatabaseConnectionException, SQLException {
+
+		List<HearthstoneCardModel> hearthstoneCardModels =
+			_hearthstoneCardDAO.getHearthstoneCardByName(input);
+
+		for (HearthstoneCardModel hearthstoneCardModel :
+				hearthstoneCardModels) {
+
+			System.out.println("Name - " + hearthstoneCardModel.getName());
+			System.out.println("Cost - " + hearthstoneCardModel.getCost());
+			System.out.println("Attack - " + hearthstoneCardModel.getAttack());
+			System.out.println("Health - " + hearthstoneCardModel.getHealth());
+			System.out.println();
+		}
 	}
+
+	private static final HearthstoneCardDAO _hearthstoneCardDAO =
+		new HearthstoneCardDAOImpl();
 }

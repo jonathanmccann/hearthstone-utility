@@ -71,7 +71,7 @@ public class HearthstoneCardDAOTest {
 		_hearthstoneCardDAO.addHearthstoneCard(hearthstoneCardModel);
 
 		HearthstoneCardModel databaseHearthstoneCardModel =
-			_hearthstoneCardDAO.getHearthstoneCard("testId");
+			_hearthstoneCardDAO.getHearthstoneCardById("testId");
 
 		Assert.assertEquals(
 			databaseHearthstoneCardModel.getId(), hearthstoneCardModel.getId());

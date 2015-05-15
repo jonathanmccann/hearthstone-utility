@@ -32,12 +32,19 @@ public class UserInput {
 		Scanner scanner = new Scanner(System.in);
 
 		for (userPrompt(); scanner.hasNextLine(); userPrompt()) {
-			String line = scanner.nextLine();
+			String input = scanner.nextLine();
+			String userAction = input.substring(0, input.indexOf(' '));
+			String parameters = input.substring(input.indexOf(' ') + 1);
 
-			Action action = actionMap.get(line);
+			Action action = actionMap.get(userAction);
 
 			if (action != null) {
-				action.execute("test");
+				try {
+					action.execute(parameters);
+				}
+				catch (Exception e) {
+					System.out.println("e = " + e);
+				}
 			}
 		}
 	}
