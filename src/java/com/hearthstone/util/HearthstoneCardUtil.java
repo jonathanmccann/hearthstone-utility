@@ -90,19 +90,35 @@ public class HearthstoneCardUtil {
 	public static void populateHearthstoneCardDatabaseFromFile()
 		throws Exception {
 
+		if (ReleaseUtil.isLatestVersion(
+				ReleaseUtil.getLatestReleaseVersionFromFile())) {
+
+			return;
+		}
+
 		List<HearthstoneCardModel> hearthstoneCardModels =
 			getHearthstoneCardJsonFromFile();
 
 		_hearthstoneCardDAO.addHearthstoneCards(hearthstoneCardModels);
+
+		ReleaseUtil.updateReleaseVersionFromFile();
 	}
 
 	public static void populateHearthstoneCardDatabaseFromURL()
 		throws Exception {
 
+		if (ReleaseUtil.isLatestVersion(
+				ReleaseUtil.getLatestReleaseVersionFromURL())) {
+
+			return;
+		}
+
 		List<HearthstoneCardModel> hearthstoneCardModels =
 			getHearthstoneCardJsonFromURL();
 
 		_hearthstoneCardDAO.addHearthstoneCards(hearthstoneCardModels);
+
+		ReleaseUtil.updateReleaseVersionFromURL();
 	}
 
 	public static void setHearthstoneCardJsonFile(

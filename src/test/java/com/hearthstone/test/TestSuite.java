@@ -19,6 +19,7 @@ import com.hearthstone.test.dao.ReleaseDAOTest;
 import com.hearthstone.test.model.HearthstoneCardModelTest;
 import com.hearthstone.test.util.DatabaseUtilTest;
 import com.hearthstone.test.util.HearthstoneCardUtilTest;
+import com.hearthstone.test.util.ReleaseUtilTest;
 import com.hearthstone.util.DatabaseUtil;
 
 import org.h2.tools.DeleteDbFiles;
@@ -35,7 +36,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses( {
 	DatabaseUtilTest.class, HearthstoneCardDAOTest.class,
 	HearthstoneCardModelTest.class, HearthstoneCardUtilTest.class,
-	ReleaseDAOTest.class
+	ReleaseDAOTest.class, ReleaseUtilTest.class
 })
 public class TestSuite {
 
